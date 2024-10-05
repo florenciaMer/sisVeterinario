@@ -1,0 +1,33 @@
+.info{
+    background-image: url("https://img.freepik.com/foto-gratis/vista-superior-hueso-papel-huella-pata-estetoscopio-dia-animales_23-2148668865.jpg?ga=GA1.1.385117786.1716470381&semt=ais_hybrid");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (max-width: 768px) {
+    .info{
+      background-image: url("https://img.freepik.com/vector-gratis/veterinario-amigable-vector-animales-mascota_1308-153008.jpg?ga=GA1.1.385117786.1716470381&semt=ais_hybrid")
+    }
+  }
+
+  .others-services{
+   
+  }
+
+  .gallery{
+    background-color: rgb(159, 195, 216);
+  }
+
+.contacto{
+  background-image: url("https://img.freepik.com/fotos-premium/cute-perro-corgi-mirando-camara-mientras-es-sostenido-su-dueno-clinica-veterinaria-enfoque-selectivo_726520-1323.jpg?ga=GA1.1.385117786.1716470381&semt=ais_hybrid");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.footer{
+  background-color: rgb(159, 195, 216);
+  color: white;
+}
+
+ 
+  
