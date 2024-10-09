@@ -20,7 +20,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
     $location = '../../../public/img/productos/'.$nombre_archivo;
     $file_name = basename($_FILES['file']['name']); // Obtener el nombre del archivo
     $target_file = $location . $file_name;
-
+   // move_uploaded_file($_FILES['file']['tmp_name'], $target_file);
     // Mover el archivo subido
     if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
         // Preparar la consulta
@@ -43,12 +43,16 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
             $sentencia->bindParam(':fyh_creacion', $fechaHora);
             $sentencia->bindParam(':imagen', $file_name); // Aquí se pasa el nombre del archivo
 
-            if ($sentencia->execute()) {
-                echo 'success';
-                // header('Location:' .$URL.'/'); // Descomentar si es necesario
-            } else {
-                echo 'error al registrar en la base de datos';
-            }
+            if($sentencia->execute()){
+                session_start();
+                $_SESSION['mensaje'] = "Se registro al producto correctamente";
+                $_SESSION['icono'] = "success";
+                header('Location: '.$URL.'/admin/productos/index.php');
+            }else{
+                $_SESSION['mensaje'] = "Error al registrar";
+                $_SESSION['icono'] = "error";
+                header('Location: '.$URL.'/admin/productos/create.php');
+            };
         } catch (Exception $e) {
             echo 'Error: ' . $e->getMessage();
         }

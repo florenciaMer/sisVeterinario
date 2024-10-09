@@ -53,9 +53,9 @@ include_once('../../app/controllers/productos/listado_de_productos.php');
                                    <td><?php echo $producto['fyh_ingreso']?></td>
                                    <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="show.php?id_producto=<?php echo $id_producto?>" class="btn btn-info"><i class="bi bi-eye"></i> Ver</a>
-                                            <a href="update.php?id_producto=<?php echo $id_producto?>" type="button" class="btn btn-success ml-1"><i class="bi bi-pencil"></i> Editar</a>
-                                            <a href="delete.php?id_producto=<?php echo $id_producto?>" type="button" class="btn btn-danger ml-1"><i class="bi bi-trash"></i> Borrar</a>
+                                            <a href="show.php?id_producto=<?php echo $id_producto?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i> Ver</a>
+                                            <a href="update.php?id_producto=<?php echo $id_producto?>" class="btn btn-success ml-1 btn-sm"><i class="bi bi-pencil"></i> Editar</a>
+                                            <a href="delete.php?id_producto=<?php echo $id_producto?>" class="btn btn-danger ml-1 btn-sm"><i class="bi bi-trash"></i> Borrar</a>
                                         </div>
                                     </td>
                                 </tr>

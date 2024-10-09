@@ -16,6 +16,7 @@ if(isset($_SESSION['session_email'])){
 $usuarios= $query->fetchAll(PDO::FETCH_ASSOC);
 foreach ($usuarios as  $usuario) {
  $id_usuario_sesion = $usuario['id_usuario'];
+ $cargo_sesion = $usuario['cargo'];
 }
 }else{
     echo "no ha pasado por el login";
