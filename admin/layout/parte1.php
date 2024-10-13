@@ -13,14 +13,14 @@ if(isset($_SESSION['session_email'])){
     $query->execute();
 
 //paso la consulta a un array
-$usuarios= $query->fetchAll(PDO::FETCH_ASSOC);
-foreach ($usuarios as  $usuario) {
- $id_usuario_sesion = $usuario['id_usuario'];
- $cargo_sesion = $usuario['cargo'];
-}
+  $usuarios= $query->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($usuarios as  $usuario) {
+  $id_usuario_sesion = $usuario['id_usuario'];
+  $cargo_sesion = $usuario['cargo'];
+  }
 }else{
     echo "no ha pasado por el login";
-    header('Location: '.$URL.'/login');
+    //header('Location: '.$URL.'/login');
 }
 ?>
 
@@ -44,7 +44,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- jQuery -->
-<script src="<?php echo $URL?>/public/templates/plugins/jquery/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
   
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

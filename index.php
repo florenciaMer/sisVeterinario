@@ -17,7 +17,7 @@
                     <div class="carousel-item active">
                       <img src="https://media.istockphoto.com/id/1885866215/es/foto/veterinarian-examines-the-pet.jpg?s=2048x2048&w=is&k=20&c=ef7shJ6zRxC9hW8PmxDd6dUvSLV6Q3NwWHFFnQA0a_w=" class="d-block w-100" alt="..." width="600px">
                       <div class="carousel-caption d-none d-md-block">
-                        <a href="" class="btn btn-outline-info">Reservar cita</a>
+                        <a href="<?php echo $URL;?>/reservar.php" class="btn btn-outline-info">Reservar cita</a>
                         <p>Some representative placeholder content for the first slide.</p>
                       </div>
                     </div>

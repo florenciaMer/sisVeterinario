@@ -4,7 +4,6 @@ include_once('../../config.php');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-
 $sql = "SELECT * FROM `usuarios` WHERE email = '$email' ";
 $query = $pdo->prepare($sql);
 $query->execute();
@@ -26,7 +25,7 @@ session_start();
 if(($contador >0) && (password_verify($password, $hash)) ){
    // echo "Bienvenido al sistema $nombre_completo";
    $_SESSION['session_email'] = $email;
-    header('Location: '.$URL.'/admin');
+    header('Location: '.$URL.'/');
     
 }else{
     $_SESSION['mensaje'] = "Las contraseñas no coinciden";

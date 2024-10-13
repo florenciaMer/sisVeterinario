@@ -1,3 +1,27 @@
+
+<?php
+session_start();
+if(isset($_SESSION['session_email'])){
+    //echo "Ha pasado por login";
+    $session_email = $_SESSION['session_email'];
+    $sql = "SELECT * FROM `usuarios` WHERE email = '$session_email' ";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+
+//paso la consulta a un array
+$usuarios= $query->fetchAll(PDO::FETCH_ASSOC);
+foreach ($usuarios as  $usuario) {
+ $id_usuario_sesion = $usuario['id_usuario'];
+ $nombre_usuario_sesion = $usuario['nombre_completo'];
+ $cargo_sesion = $usuario['cargo'];
+}
+}else{
+    $session_email= "";
+    //echo "no ha pasado por el login";
+   // header('Location: '.$URL.'/login');
+}
+?>
+
 <!DOCTYPE html>
   <html lang="es">
   <head>
@@ -6,9 +30,11 @@
 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <link rel="stylesheet" href="public/css/style.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+   
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+      <link rel="stylesheet" href="public/css/style.css">
   <title>SIS | Veterinario</title>
   </head>
 
@@ -53,15 +79,35 @@
                   <ul class="navbar-nav mr-auto">
                     
                     <li class="nav-item dropdown">
+                    <?php 
+                        if ($session_email == "") {
+                           // echo "sin loguearse";?>
+
                     <a class="nav-link dropdown-toggle btn btn-outline-info" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Ingresar
                     </a>
-                    <div class="dropdown-menu">
+                   
+                        <div class="dropdown-menu">
                         <a class="dropdown-item" href="login/index.php">Iniciar Sesión</a>
                         <a class="dropdown-item" href="login/registro.php">Registrarse</a>
                         
                     </div>
-                    </li>
+                       <?php }else{
+                          //  echo "ya paso por el login";?>
+                            <a class="nav-link btn btn-outline-info" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                             <?php echo $session_email;?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                    href="<?php echo $URL;?>/app/controllers/login/cerrar_sesion.php">Cerrar Sesión
+                                    </a>
+                                </li>
+                            </ul>
+                               
+                            </div>
+                           <?php }
+                        ?>
+                            </li>
                     
                 </ul>
               </div>
